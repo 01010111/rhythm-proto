@@ -1,0 +1,74 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container {
+	background-color: #41ACE8;
+	position: relative;
+	width: 600px;
+	height: 600px;
+	border-radius: 8px;
+	overflow: hidden;
+
+	&& * {
+
+	}
+
+}
+
+.wave {
+	position: absolute;
+	width: 600px;
+	height: 300px;
+	top: 50%;
+	background-image: url(wave.svg);
+	animation: wave-move-animation 2s linear infinite, wave-rotate-animation 2s ease-in-out infinite;
+	opacity: 0.25;
+}
+
+.circle {
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	background-image: url(circle.svg);
+	animation: circle-animation 500ms ease-in infinite;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.pulse {
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	background-image: url(pulse.svg);
+	background-position: center;
+	background-repeat: no-repeat;
+	opacity: 0;
+}
+
+.dot {
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	background: white;
+	border-radius: 300px;
+	scale: 0.04;
+}
+
+@keyframes wave-move-animation {
+	0% { background-position: 0 0; }
+	100% { background-position: 600px 0; }
+}
+
+@keyframes wave-rotate-animation {
+	0% { transform: rotateZ(-5deg); }
+	50% { transform: rotateZ(5deg); }
+	100% { transform: rotateZ(-5deg); }
+}
+
+@keyframes circle-animation {
+	0% { scale: 2; opacity: 0 }
+	100% { scale: 0; opacity: 0.5 }
+}
