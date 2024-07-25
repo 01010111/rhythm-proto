@@ -22,9 +22,10 @@ body {
 	position: absolute;
 	width: 600px;
 	height: 300px;
-	top: 50%;
+	top: 66%;
+	scale: 1 0.5;
 	background-image: url(wave.svg);
-	animation: wave-move-animation 2s linear infinite, wave-rotate-animation 2s ease-in-out infinite;
+	animation: wave-move-animation 4s linear infinite, wave-rotate-animation 4s ease-in-out infinite;
 	opacity: 0.25;
 }
 
@@ -48,6 +49,16 @@ body {
 	opacity: 0;
 }
 
+.beater {
+	position: absolute;
+	width: 600px;
+	height: 600px;
+	background: white;
+	border-radius: 300px;
+	scale: 0.02;
+	animation: beater-animation 500ms linear infinite;
+}
+
 .dot {
 	position: absolute;
 	width: 600px;
@@ -69,6 +80,16 @@ body {
 }
 
 @keyframes circle-animation {
-	0% { scale: 2; opacity: 0 }
-	100% { scale: 0; opacity: 0.5 }
+	0% { scale: 1.75; opacity: 0 }
+	100% { scale: 0; opacity: 0.33 }
+}
+
+@keyframes beater-animation {
+	0% { transform: translateX(3000%); opacity: 0.5; }
+	100% { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes beater-rotate-animation {
+	0% { rotate: 0deg }
+	100% { rotate: 360deg }
 }
