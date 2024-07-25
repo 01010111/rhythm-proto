@@ -26,7 +26,15 @@ body {
 	scale: 1.5 0.5;
 	background-image: url(wave.svg);
 	animation: wave-move-animation 2s linear infinite, wave-rotate-animation 2s ease-in-out infinite;
-	opacity: 0.25;
+	opacity: 0.33;
+
+	&&.alternate {
+		rotate: 180deg;
+		scale: -3 0.75;
+		animation-duration: 1s;
+		top: 55%;
+		opacity: 0.2;
+	}
 }
 
 .circle {
