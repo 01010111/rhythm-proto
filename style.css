@@ -23,9 +23,9 @@ body {
 	width: 600px;
 	height: 300px;
 	top: 66%;
-	scale: 1 0.5;
+	scale: 1.5 0.5;
 	background-image: url(wave.svg);
-	animation: wave-move-animation 4s linear infinite, wave-rotate-animation 4s ease-in-out infinite;
+	animation: wave-move-animation 2s linear infinite, wave-rotate-animation 2s ease-in-out infinite;
 	opacity: 0.25;
 }
 
@@ -74,9 +74,9 @@ body {
 }
 
 @keyframes wave-rotate-animation {
-	0% { transform: rotateZ(-5deg); }
-	50% { transform: rotateZ(5deg); }
-	100% { transform: rotateZ(-5deg); }
+	0% { transform: rotateZ(-10deg); }
+	50% { transform: rotateZ(10deg); }
+	100% { transform: rotateZ(-10deg); }
 }
 
 @keyframes circle-animation {
