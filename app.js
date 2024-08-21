@@ -19,3 +19,17 @@ function pulse() {
 
 container.onpointerdown = (e) => pulse();
 window.addEventListener('keydown', (e) => { if (e.key === ' ' && !e.repeat) pulse()} );
+
+var bar_itr = 0;
+var bar_count = document.querySelectorAll('.bar').length;
+const max_bar_size = 32;
+for (let bar of document.querySelectorAll('.bar')) {
+	let s = 1 - Math.abs(bar_count/2 - bar_itr)/(bar_count/2);
+	console.log(s, bar_count/2, bar_itr);
+	bar.addEventListener('animationiteration', () => {
+		let random = (Math.random() + Math.random()) / 2;
+		let scale = Math.max(1, random * s * s * max_bar_size);
+		bar.style.setProperty('--sy', scale);
+	});
+	bar_itr++;
+}
