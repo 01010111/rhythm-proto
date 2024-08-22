@@ -28,8 +28,8 @@ for (let bar of document.querySelectorAll('.bar')) {
 	console.log(s, bar_count/2, bar_itr);
 	bar.addEventListener('animationiteration', () => {
 		let random = (Math.random() + Math.random()) / 2;
-		let scale = Math.max(1, random * s * s * max_bar_size);
-		bar.style.setProperty('--sy', scale);
+		let scale = Math.max(8, random * s * s * max_bar_size * 8);
+		bar.style.setProperty('--sy', `${scale}px`);
 	});
 	bar_itr++;
 }
