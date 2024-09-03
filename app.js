@@ -5,6 +5,8 @@ const music = new Howl({
 	loop: true,
 });
 
+var play_music = false;
+
 function pulse() {
 	dot.animate([
 		{ scale: '0.08' },
@@ -14,11 +16,14 @@ function pulse() {
 		easing: 'ease-out'
 	});
 
-	if (!music.playing()) music.play();
+	if (!music.playing() && play_music) music.play();
 }
 
 container.onpointerdown = (e) => pulse();
-window.addEventListener('keydown', (e) => { if (e.key === ' ' && !e.repeat) pulse()} );
+window.addEventListener('keydown', (e) => {
+	if (e.key === 'm' && !e.repeat) play_music = true;
+	if (e.key === ' ' && !e.repeat) pulse();
+});
 
 var bar_itr = 0;
 var bar_count = document.querySelectorAll('.bar').length;
@@ -33,3 +38,11 @@ for (let bar of document.querySelectorAll('.bar')) {
 	});
 	bar_itr++;
 }
+
+function set_bpm(bpm) {
+	bpm = parseInt(new URLSearchParams(window.location.search).get('bpm')) || 120;
+	let bt = 60/bpm * 1000;
+	document.documentElement.style.cssText = `--bt: ${bt}ms`
+}
+
+set_bpm();
